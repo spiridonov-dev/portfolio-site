@@ -11,3 +11,11 @@ def test_get_post():
 
     assert "userId" in data
     assert "title" in data
+
+
+def test_get_post_negative():
+    url = "https://jsonplaceholder.typicode.com/posts/999999"
+
+    response = requests.get(url)
+
+    assert response.status_code == 404
